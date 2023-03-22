@@ -157,7 +157,37 @@ class _LoginPageState extends State<LoginPage> {
                                       : Icons.visibility,
                                   color: Colors.grey[700],
                                 ),
-                              )),
+                              ),
+                                hintText: 'Password',
+                                hintStyle: TextStyle(
+                                  color: Colors.grey[900],
+                                  fontWeight: FontWeight.w400,
+                                  letterSpacing: 1.5,
+                                  fontSize: 16),
+                                labelText: 'Password',
+                                labelStyle: TextStyle(
+                                  color: Colors.grey[900]
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(14),
+                                  borderSide: BorderSide(color: Colors.black54)
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(14),
+                                  borderSide: BorderSide(color: Colors.black54),
+                                ),
+                              ),
+                              onChanged: (value){
+                                setState(() {
+                                  password= value;
+                                });
+                              },
+                              validator: (value){
+                                if(value!.isEmpty || value.length<4){
+                                  return 'Password should be longer than 6 characters';
+                                }
+                                return null;
+                              },
                             ),
                           ),
                           GestureDetector(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loginpageui/homepage.dart';
 import 'package:loginpageui/slideleft.dart';
@@ -170,7 +171,7 @@ class _SignupPageState extends State<SignupPage> {
                               bool emailValid = RegExp(
                                       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                                   .hasMatch(value!);
-                              if (value!.isEmpty ||
+                              if (value.isEmpty ||
                                   value.length < 4 ||
                                   !emailValid) {
                                 return 'Please enter correct value';
@@ -221,14 +222,41 @@ class _SignupPageState extends State<SignupPage> {
                                 password = value;
                               });
                             },
-                            validator: (value){
-                              if(value!.isEmpty || value.length<6){
+                            validator: (value) {
+                              if (value!.isEmpty || value.length < 6) {
                                 return 'Please enter correct value';
                               }
                               return null;
                             },
                           ),
-                        )
+                        ),
+                        GestureDetector(
+                          behavior: HitTestBehavior.opaque,
+                          onTap: (){
+                            print('Check Creds');
+                            setState(() {
+                              _isLoading= true;
+                            });
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.only(top: 20),
+                            child: Container(
+                              height: 48,
+                              width: 48,
+                              decoration: BoxDecoration(
+                                  color: Colors.grey[800],
+                                  boxShadow: [BoxShadow(color: Colors.grey)],
+                                  shape: BoxShape.circle),
+                              child: _isLoading!
+                                  ? SpinKitDoubleBounce(
+                                      color: Colors.yellowAccent,
+                                    )
+                                  : Icon(
+                                      Icons.arrow_forward,
+                                      color: Colors.yellowAccent,),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),

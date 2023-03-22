@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loginpageui/homepage.dart';
 import 'package:loginpageui/slideright.dart';
@@ -145,45 +146,43 @@ class _LoginPageState extends State<LoginPage> {
                               style: TextStyle(color: Colors.grey[900]),
                               obscureText: !_passVisibility!,
                               decoration: InputDecoration(
-                                  suffixIcon: GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    _passVisibility = !_passVisibility!;
-                                  });
-                                },
-                                child: Icon(
-                                  !_passVisibility!
-                                      ? Icons.visibility_off
-                                      : Icons.visibility,
-                                  color: Colors.grey[700],
+                                suffixIcon: GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      _passVisibility = !_passVisibility!;
+                                    });
+                                  },
+                                  child: Icon(
+                                    !_passVisibility!
+                                        ? Icons.visibility_off
+                                        : Icons.visibility,
+                                    color: Colors.grey[700],
+                                  ),
                                 ),
-                              ),
                                 hintText: 'Password',
                                 hintStyle: TextStyle(
-                                  color: Colors.grey[900],
-                                  fontWeight: FontWeight.w400,
-                                  letterSpacing: 1.5,
-                                  fontSize: 16),
+                                    color: Colors.grey[900],
+                                    fontWeight: FontWeight.w400,
+                                    letterSpacing: 1.5,
+                                    fontSize: 16),
                                 labelText: 'Password',
-                                labelStyle: TextStyle(
-                                  color: Colors.grey[900]
-                                ),
+                                labelStyle: TextStyle(color: Colors.grey[900]),
                                 enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(14),
-                                  borderSide: BorderSide(color: Colors.black54)
-                                ),
+                                    borderRadius: BorderRadius.circular(14),
+                                    borderSide:
+                                        BorderSide(color: Colors.black54)),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(14),
                                   borderSide: BorderSide(color: Colors.black54),
                                 ),
                               ),
-                              onChanged: (value){
+                              onChanged: (value) {
                                 setState(() {
-                                  password= value;
+                                  password = value;
                                 });
                               },
-                              validator: (value){
-                                if(value!.isEmpty || value.length<4){
+                              validator: (value) {
+                                if (value!.isEmpty || value.length < 4) {
                                   return 'Password should be longer than 6 characters';
                                 }
                                 return null;
@@ -208,6 +207,36 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                           ),
+                          GestureDetector(
+                            behavior: HitTestBehavior.opaque,
+                            child: Padding(
+                              padding: EdgeInsets.only(top: 20),
+                              child: Container(
+                                height: 48,
+                                width: 48,
+                                decoration: BoxDecoration(
+                                    color: Colors.grey[800],
+                                    boxShadow: [
+                                      BoxShadow(color: Colors.grey),
+                                    ],
+                                    shape: BoxShape.circle),
+                                child: _isLoading!
+                                    ? SpinKitDoubleBounce(
+                                        color: Colors.yellowAccent,
+                                      )
+                                    : Icon(
+                                        Icons.arrow_forward,
+                                        color: Colors.yellowAccent,
+                                      ),
+                              ),
+                            ),
+                            onTap: () {
+                              print('Check Creds!');
+                              setState(() {
+                                _isLoading = true;
+                              });
+                            },
+                          )
                         ],
                       ),
                     ),

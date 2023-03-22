@@ -118,7 +118,8 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(14),
-                                  borderSide: const BorderSide(color: Colors.black54),
+                                  borderSide:
+                                      const BorderSide(color: Colors.black54),
                                 ),
                               ),
                               onChanged: (value) {
@@ -140,8 +141,8 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                           Padding(
-                            padding:
-                                const EdgeInsets.only(top: 20, right: 8, left: 8),
+                            padding: const EdgeInsets.only(
+                                top: 20, right: 8, left: 8),
                             child: TextFormField(
                               cursorColor: Colors.grey[900],
                               style: TextStyle(color: Colors.grey[900]),
@@ -170,11 +171,12 @@ class _LoginPageState extends State<LoginPage> {
                                 labelStyle: TextStyle(color: Colors.grey[900]),
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(14),
-                                    borderSide:
-                                        const BorderSide(color: Colors.black54)),
+                                    borderSide: const BorderSide(
+                                        color: Colors.black54)),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(14),
-                                  borderSide: const BorderSide(color: Colors.black54),
+                                  borderSide:
+                                      const BorderSide(color: Colors.black54),
                                 ),
                               ),
                               onChanged: (value) {

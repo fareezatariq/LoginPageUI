@@ -16,6 +16,7 @@ class _LoginPageState extends State<LoginPage> {
   String? email, password;
   bool? _isLoading, _passVisibility;
 
+  @override
   void initState() {
     _isLoading = false;
     _passVisibility = false;
@@ -32,15 +33,15 @@ class _LoginPageState extends State<LoginPage> {
               GestureDetector(
                 behavior: HitTestBehavior.opaque,
                 onTap: () {
-                  Navigator.pop(context, SlideRight(page: HomePage()));
+                  Navigator.pop(context, SlideRight(page: const HomePage()));
                 },
                 child: Center(
                   child: Padding(
-                    padding: EdgeInsets.only(top: 65),
+                    padding: const EdgeInsets.only(top: 65),
                     child: Container(
                         height: 48,
                         width: 48,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             color: Colors.yellowAccent,
                             boxShadow: [BoxShadow(color: Colors.grey)],
                             shape: BoxShape.circle),
@@ -78,14 +79,14 @@ class _LoginPageState extends State<LoginPage> {
                       color: Colors.yellowAccent,
                       borderRadius: BorderRadius.circular(20)),
                   child: Padding(
-                    padding: EdgeInsets.only(top: 28),
+                    padding: const EdgeInsets.only(top: 28),
                     child: Form(
                       key: _formkey1,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(bottom: 40),
+                            padding: const EdgeInsets.only(bottom: 40),
                             child: Text(
                               'Sign In',
                               style: GoogleFonts.sourceCodePro(
@@ -95,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(right: 8, left: 8),
+                            padding: const EdgeInsets.only(right: 8, left: 8),
                             child: TextFormField(
                               cursorColor: Colors.grey[900],
                               style: TextStyle(color: Colors.grey[900]),
@@ -111,13 +112,13 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(20),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Colors.black54,
                                   ),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(14),
-                                  borderSide: BorderSide(color: Colors.black54),
+                                  borderSide: const BorderSide(color: Colors.black54),
                                 ),
                               ),
                               onChanged: (value) {
@@ -140,7 +141,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           Padding(
                             padding:
-                                EdgeInsets.only(top: 20, right: 8, left: 8),
+                                const EdgeInsets.only(top: 20, right: 8, left: 8),
                             child: TextFormField(
                               cursorColor: Colors.grey[900],
                               style: TextStyle(color: Colors.grey[900]),
@@ -170,10 +171,10 @@ class _LoginPageState extends State<LoginPage> {
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(14),
                                     borderSide:
-                                        BorderSide(color: Colors.black54)),
+                                        const BorderSide(color: Colors.black54)),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(14),
-                                  borderSide: BorderSide(color: Colors.black54),
+                                  borderSide: const BorderSide(color: Colors.black54),
                                 ),
                               ),
                               onChanged: (value) {
@@ -194,7 +195,7 @@ class _LoginPageState extends State<LoginPage> {
                               print('Forget my password');
                             },
                             child: Padding(
-                              padding: EdgeInsets.only(top: 12, right: 6),
+                              padding: const EdgeInsets.only(top: 12, right: 6),
                               child: Container(
                                 child: Text(
                                   'Forget Password?',
@@ -210,21 +211,21 @@ class _LoginPageState extends State<LoginPage> {
                           GestureDetector(
                             behavior: HitTestBehavior.opaque,
                             child: Padding(
-                              padding: EdgeInsets.only(top: 20),
+                              padding: const EdgeInsets.only(top: 20),
                               child: Container(
                                 height: 48,
                                 width: 48,
                                 decoration: BoxDecoration(
                                     color: Colors.grey[800],
-                                    boxShadow: [
+                                    boxShadow: const [
                                       BoxShadow(color: Colors.grey),
                                     ],
                                     shape: BoxShape.circle),
                                 child: _isLoading!
-                                    ? SpinKitDoubleBounce(
+                                    ? const SpinKitDoubleBounce(
                                         color: Colors.yellowAccent,
                                       )
-                                    : Icon(
+                                    : const Icon(
                                         Icons.arrow_forward,
                                         color: Colors.yellowAccent,
                                       ),

@@ -137,6 +137,51 @@ class _SignupPageState extends State<SignupPage> {
                           }
                           return null;
                         },
+                      ),),
+                      Padding(
+                          padding: EdgeInsets.only(top: 15, left: 8, right: 8),
+                      child: TextFormField(
+                        cursorColor: Colors.grey[900],
+                        style: TextStyle(
+                          color: Colors.grey[900]
+                        ),
+                        decoration: InputDecoration(
+                          hintText: 'Email',
+                          hintStyle: TextStyle(
+                            color: Colors.grey[900],
+                              fontWeight: FontWeight.w400,
+                              letterSpacing: 1.5,
+                              fontSize: 16
+                          ),
+                          labelText: 'Email',
+                          labelStyle: TextStyle(
+                            color: Colors.grey[900],
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(14),
+                            borderSide: BorderSide(
+                              color: Colors.black54
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.black54
+                            ),
+                            borderRadius: BorderRadius.circular(14),
+                          ),
+                        ),
+                        onChanged: (value){
+                          setState(() {
+                            email=value;
+                          });
+                        },
+                        validator: (value){
+                          bool emailValid= RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(value!);
+                          if(value!.isEmpty || value.length<4 || !emailValid ){
+                            return 'Please enter correct value';
+                          }
+                          return null;
+                        },
                       ),)
                     ],
                   ),
